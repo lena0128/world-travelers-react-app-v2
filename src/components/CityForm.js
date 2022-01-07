@@ -1,10 +1,34 @@
 import React, { useState, useEffect } from 'react';
 
 function CityForm(){
+    // const [name, setName] = useState("")
+    // const [country, setCountry] = useState("")
+    // const [image, setImage] = useState("")
+    // const [summary, setSummary] = useState("")
+    // const [content, setContent] = useState("")
+
+    const [city, setCity] = useState({})
+    const [cityList, setCityList] = useState([])
+
+    function handleChange(e){
+        setCity({
+            ...city,
+            [e.target.name]: e.target.value
+        })
+        console.log(city)
+    }
+    
+    function addToList(e){
+        e.preventDefault()
+
+        setCityList(prevList => [...prevList, city])
+         console.log(cityList)
+
+    }
 
     return(
         <div id="city-form">
-            <form>
+            <form onSubmit={addToList}>
             <h3>Add a New City</h3>
                     <div>
                         <label htmlFor="name">Name: </label>

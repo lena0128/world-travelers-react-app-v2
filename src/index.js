@@ -5,13 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // redux
-import { createStore } from 'react-redux';
+import { createStore } from 'redux';
 
-const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+// connect store to react app
+import { Provider } from 'react-redux';
+
+const store = createStore(() => {
+    return {cities: []}
+}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
 
 ReactDOM.render(
   <React.StrictMode>
+  <Provider store={store}> 
     <App />
+  </Provider>  
   </React.StrictMode>,
   document.getElementById('root')
 );
