@@ -1,13 +1,16 @@
 import './App.css';
 import CityForm from './components/CityForm';
-import LandingPage from './components/LandingPage'
+import CityList from './components/CityList'; 
+import LandingPage from './components/LandingPage';
+
 
 
 function App() {
   return (
     <div className="App">
-     <h1>Hi</h1>
+     <h1>Welcome, travelers!</h1>
      <CityForm />
+     <CityList />
      <LandingPage />
     </div>
   );

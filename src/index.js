@@ -5,14 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // redux
-import { createStore } from 'redux';
-
+import { createStore, applyMiddleware, compose } from 'redux';
 // connect store to react app
 import { Provider } from 'react-redux';
 
-const store = createStore(() => {
-    return {cities: []}
-}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+import cityReducer from './reducers/cityReducer';
+
+// thunk
+import thunk from 'redux-thunk'; 
+
+const store = createStore(cityReducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 
 
 ReactDOM.render(

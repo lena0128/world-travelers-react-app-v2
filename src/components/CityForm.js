@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import {  useDispatch } from 'react-redux';
+import { createCity } from '../actions/cityActions';
+
 
 function CityForm(){
-    // const [name, setName] = useState("")
-    // const [country, setCountry] = useState("")
-    // const [image, setImage] = useState("")
-    // const [summary, setSummary] = useState("")
-    // const [content, setContent] = useState("")
-
+    // define a local state
     const [city, setCity] = useState({})
-    const [cityList, setCityList] = useState([])
+    
+    const dispatch = useDispatch()
 
     function handleChange(e){
         setCity({
             ...city,
             [e.target.name]: e.target.value
         })
-        console.log(city)
     }
     
     function addToList(e){
+        debugger
         e.preventDefault()
 
-        setCityList(prevList => [...prevList, city])
-         console.log(cityList)
+        dispatch(createCity(city))
 
+        setCity({
+            ...city,
+            [e.target.name]: ""
+        })
     }
 
     return(
