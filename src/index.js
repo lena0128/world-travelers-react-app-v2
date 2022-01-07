@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// redux
+import { createStore } from 'react-redux';
+
+const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
