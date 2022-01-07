@@ -5,7 +5,7 @@ function CityCard(props) {
     return(
         <div className="city-card">
            <img src={props.image} alt={props.name} />
-           <h3>{props.name}, {props.country}</h3>
+           <p>{props.name}, {props.country}</p>
         </div>
     )
 }

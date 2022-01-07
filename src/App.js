@@ -1,5 +1,6 @@
 import './App.css';
-import CityForm from './components/CityForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NewCityForm from './components/NewCityForm';
 import CityList from './components/CityList'; 
 import LandingPage from './components/LandingPage';
 
@@ -9,7 +10,7 @@ function App() {
   return (
     <div className="App">
      <h1>Welcome, travelers!</h1>
-     <CityForm />
+     <NewCityForm />
      <CityList />
      <LandingPage />
     </div>

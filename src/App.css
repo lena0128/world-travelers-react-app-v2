@@ -55,18 +55,22 @@
   height: 35vh;
 }
 
-#city-form {
+.city-form {
   background-color: rgb(240, 240, 210);
   margin-top: 1rem;
   margin-bottom: 2rem;
   padding: 0.5rem 4rem 1rem 4rem;
   display: inline-block;
-  border-radius: 10%;
+  border-radius: 0.8%;
   border-style: solid;
   background-position-y: top;
   background-repeat: no-repeat;
+  text-align: left
 }
 
+.city-form h3 {
+  text-align: center;
+}
 
 .city-card {
   display: inline-block;
@@ -75,11 +79,12 @@
   height: 350px;
   color: #282c34;
   border: 1px solid #5d6472;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
 }
 
 .city-card img {
   width: 350px;
   height: 220px;
-
 }
-
