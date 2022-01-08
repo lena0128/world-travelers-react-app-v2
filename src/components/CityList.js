@@ -3,45 +3,45 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fecthCities } from '../actions/cityActions';
 import CityCard from './CityCard';
 import CityFilter from './CityFilter';
+import { Container } from 'react-bootstrap';
+// import { Switch, Route } from 'react-router-dom';
+// import CityPage from './CityPage';
 
 function CityList() {
     const cities = useSelector(state => state.cities)
     const loading = useSelector(state => state.loading)
     const dispatch = useDispatch()
 
-    const [searchTerm, setSearch] = useState("")
 
-    const displayCities = cities.map((city, id) => <CityCard 
-    key={id}
-    id={city.id} 
-    name={city.name}
-    country={city.country} 
-    image={city.image}
-    />)
-
+    const [searchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
           console.log("mounting cities")
           dispatch(fecthCities())
 
-          // componentWillUnmount
+          // cleanup function
           return () => {
               console.log("unmounting cities")
           }
     }, [dispatch]) 
 
     function handleSearch(e) {
-        setSearch(e.target.value)
+        setSearchTerm(e.target.value)
     }
 
-    const searchResult = cities.find((city) => city.name.toLowerCase() === searchTerm.toLowerCase())
+
+    const foundCities = cities.filter((city) => city.country.toLowerCase() === searchTerm.toLowerCase())
+    // console.log(foundCity)
+
 
     return(
-        <div className="city-list">
-            <CityFilter searchTerm={searchTerm} city={searchResult} handleSearch={handleSearch} />
-            <h3>all cities</h3>
-            {loading ? <h1>Data loading...</h1> : displayCities }
-        </div>
+        <Container className="city-list">
+                    
+                    <CityFilter searchTerm={searchTerm} handleSearch={handleSearch} />
+
+                    {loading ? <h1>Data loading...</h1> : <CityCard cities={cities} foundCities={foundCities}/> }
+                  
+        </Container>
     )
 
 }

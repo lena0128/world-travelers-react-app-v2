@@ -57,14 +57,8 @@
 
 .city-form {
   background-color: rgb(240, 240, 210);
-  margin-top: 1rem;
-  margin-bottom: 2rem;
   padding: 2rem;
-  display: inline-block;
-  border-style: solid;
-  background-position-y: top;
-  background-repeat: no-repeat;
-  text-align: left
+  margin: 2rem;
 }
 
 .city-form h3 {
@@ -86,4 +80,29 @@
 .city-card img {
   width: 350px;
   height: 220px;
+}
+
+#nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+
+ .nav-link {
+  float: left;
+  color: #FBBF29;
+  display: block;
+  text-align: center;
+  padding: 14px 15px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #111;
 }
