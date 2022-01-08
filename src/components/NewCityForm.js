@@ -4,7 +4,8 @@ import { createCity } from '../actions/cityActions';
 import { Form, Button, Container } from 'react-bootstrap';
 
 
-function NewCityForm(){
+
+function NewCityForm(props){
     // define a local state
     const initCity = {
         name: "",
@@ -31,6 +32,8 @@ function NewCityForm(){
         if (city.name && city.country && city.summary) {
            dispatch(createCity(city))
         }
+
+        props.goBack()
     }
 
     return(
@@ -64,7 +67,11 @@ function NewCityForm(){
                                         
 
                     <Button variant="success" type="submit">Submit</Button>
+            <hr />
             </Form>
+
+            <div><Button variant="success" type="submit" onClick={props.goBack}>GO BACK</Button></div>
+            
         </Container>
     )
 

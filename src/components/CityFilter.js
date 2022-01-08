@@ -6,7 +6,7 @@ function CityFilter(props){
         <>
         <div id="city-filter">
             <br />
-           <input type="text" placeholder="Search for a city..." onChange={props.handleSearch } />
+           <input type="text" placeholder="Enter a country's name..." onChange={props.handleSearch } />
         </div> 
 
         <hr />
