@@ -10,7 +10,7 @@ function CityCard(props) {
             <img src={city.image} alt={city.name} />
             <p>{city.name}, {city.country}</p>
                 <Link to={`/cities/${city.id}`} key={city.id}>
-                  <Button variant="light alert">Read More</Button>
+                  <Button variant="success">Read More</Button>
                 </Link>
             </div>
         ) 

@@ -61,6 +61,12 @@
   margin: 2rem;
 }
 
+.user-form {
+  background-color: rgb(240, 240, 210);
+  padding: 2rem;
+  margin: 2rem;
+}
+
 .city-form h3 {
   text-align: center;
 }

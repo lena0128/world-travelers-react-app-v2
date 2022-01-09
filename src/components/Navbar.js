@@ -17,7 +17,7 @@ const Navbar = () => {
               <li id="guides">TRAVEL GUIDES</li>
             </Link>
 
-                <img src="https://logodix.com/logo/585455.png" alt="mockup logo" style={{width: "30px", float: "right", padding: "12px"}} />   
+                <img src="https://cdn.dribbble.com/users/10882/screenshots/15172621/media/cd2246d5d0f54f9a4316bd4d276764b2.png?compress=1&resize=400x300" alt="mockup logo" style={{width: "50px", float: "right", padding: "12px"}} />   
         </ul>
     )
 

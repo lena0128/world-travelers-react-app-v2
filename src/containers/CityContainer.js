@@ -42,7 +42,7 @@ function CityContainer() {
             }} />
 
             <Route exact path="/cities" render={() => {
-                const foundCities = cities.filter((city) => city.country.toLowerCase() === searchTerm.toLowerCase())
+                const foundCities = cities.filter((city) => city.country.toLowerCase() === searchTerm.toLowerCase() || city.name.toLowerCase() === searchTerm.toLowerCase())
                 
                 return(
                     <>
