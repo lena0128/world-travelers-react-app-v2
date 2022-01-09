@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { Link } from "react-router-dom";
-import { Container, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function CityCard(props) {
 
@@ -10,7 +10,7 @@ function CityCard(props) {
             <img src={city.image} alt={city.name} />
             <p>{city.name}, {city.country}</p>
                 <Link to={`/cities/${city.id}`} key={city.id}>
-                  Read More
+                  <Button variant="light alert">Read More</Button>
                 </Link>
             </div>
         ) 

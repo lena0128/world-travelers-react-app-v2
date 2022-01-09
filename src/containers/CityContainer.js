@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap';
 import { Switch, Route } from 'react-router-dom';
 import CityPage from '../components/CityPage';
 import NewCityForm from '../components/NewCityForm';
+import Loading from '../components/Loading';
 
 function CityContainer() {
     const cities = useSelector(state => state.cities)
@@ -47,12 +48,21 @@ function CityContainer() {
                     <>
               <CityFilter searchTerm={searchTerm} handleSearch={handleSearch} handleClearClick={() => setSearch("")} /> 
 
-               {loading ? <h1>Data loading...</h1> : <CityCard cities={cities} foundCities={foundCities} searchTerm={searchTerm}/> }      
+               {loading ? <Loading /> : <CityCard cities={cities} foundCities={foundCities} searchTerm={searchTerm}/> }      
                     </>
                 )
 
             }}>
-            </Route> 
+            </Route>
+
+             <Route path="/cities/:id" component={(routeInfo) => {
+                    // console.log(routeInfo)
+                    const paramsId = parseInt(routeInfo.match.params.id) 
+                    const singleCity = cities.find((city) => city.id === paramsId)
+                    return <CityPage city={singleCity} goBack={() => routeInfo.history.push("/cities")} />
+                }}>
+
+                </Route> 
             
           </Switch>       
                   
