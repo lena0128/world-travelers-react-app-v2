@@ -13,8 +13,8 @@ function CityContainer() {
     const loading = useSelector(state => state.loading)
     const dispatch = useDispatch()
 
-
-    const [searchTerm, setSearchTerm] = useState("")
+    const initSearch = ""
+    const [searchTerm, setSearch] = useState(initSearch)
 
     useEffect(() => {
           console.log("mounting cities")
@@ -26,27 +26,32 @@ function CityContainer() {
           }
     }, [dispatch]) 
 
+    
+    // handle filter function
     function handleSearch(e) {
-        setSearchTerm(e.target.value)
+        setSearch(e.target.value)
     }
-
-
-    const foundCities = cities.filter((city) => city.country.toLowerCase() === searchTerm.toLowerCase())
-    // console.log(foundCity)
-
 
     return(
         <Container className="city-list">
           <Switch>
 
-            <Route exact path="/cities/new" component={(routeInfo) => {
+            <Route exact path="/cities/new" render={(routeInfo) => {
                 return <NewCityForm goBack={() => routeInfo.history.push("/cities")} />
             }} />
 
-            <Route exact path="/ cities">
-                <CityFilter searchTerm={searchTerm} handleSearch={handleSearch} />
+            <Route exact path="/cities" render={() => {
+                const foundCities = cities.filter((city) => city.country.toLowerCase() === searchTerm.toLowerCase())
+                
+                return(
+                    <>
+              <CityFilter searchTerm={searchTerm} handleSearch={handleSearch} handleClearClick={() => setSearch("")} /> 
 
-                {loading ? <h1>Data loading...</h1> : <CityCard cities={cities} foundCities={foundCities}/> } 
+               {loading ? <h1>Data loading...</h1> : <CityCard cities={cities} foundCities={foundCities} searchTerm={searchTerm}/> }      
+                    </>
+                )
+
+            }}>
             </Route> 
             
           </Switch>       

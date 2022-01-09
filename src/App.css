@@ -106,3 +106,7 @@
 .nav-link:hover {
   background-color: #111;
 }
+
+#city-filter input {
+  margin: 1rem;
+}
